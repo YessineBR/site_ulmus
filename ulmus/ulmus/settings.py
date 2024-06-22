@@ -78,6 +78,8 @@ INSTALLED_APPS = [
     'djangocms_frontend.contrib.navigation',
     'djangocms_frontend.contrib.tabs',
     'djangocms_frontend.contrib.utilities',
+    
+    'base'
 ]
 
 MIDDLEWARE = [
@@ -161,10 +163,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'fr'
 
 LANGUAGES = [
-    ("en", _("English")),
+    ("fr", _("Français")),
     # Add additional languages here
 ]
 
@@ -181,6 +183,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "ulmus" / "static",
+    BASE_DIR / "base" / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -201,6 +208,7 @@ SITE_ID = 1
 
 CMS_TEMPLATES = (
     ("base.html", _("Standard")),
+    ("base/index.html", _("Page d'acceuil Ulmus")),
 )
 
 # Enable permissions
