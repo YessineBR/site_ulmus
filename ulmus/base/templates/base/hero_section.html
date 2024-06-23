@@ -1,8 +1,8 @@
 {% load static %}
-{% comment %} <section id="hero" class="d-flex align-items-center"> {% endcomment %}
+<section id="hero" class="d-flex align-items-center" {% if instance.background_image %}style="background-image: url('{{instance.background_image.url}}');"{% endif %}>
   <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
     <h1>{{ instance.title }}</h1>
     <h2>{{ instance.subtitle }}</h2>
     <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
   </div>
-{% comment %} </section> {% endcomment %}
+</section>
