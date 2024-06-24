@@ -78,3 +78,12 @@ class CTASection(CMSPlugin):
     
     def __str__(self):
         return f"{self.header}"
+    
+class ContactSection(CMSPlugin):
+    description = models.TextField(verbose_name=_("Description"))
+    company_address = models.CharField(max_length=256, verbose_name=_("Addresse de la société"))
+    company_email = models.EmailField(verbose_name=_("E-mail de la société"))
+    company_phone_number = models.CharField(max_length=32, verbose_name=_("Numéro téléphone de la société"))
+    
+    def __str__(self):
+        return f"Section contact {self.id}"

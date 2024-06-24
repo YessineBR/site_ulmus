@@ -1,7 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext_lazy as _
-from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard, CTASection
+from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard, CTASection, ContactSection
 
 
 @plugin_pool.register_plugin
@@ -10,7 +10,7 @@ class HeroSectionPlugin(CMSPluginBase):
     render_template = "base/hero_section.html"
     cache = False
     module = _("Théme Ulmus")
-    name = _("Section héro")
+    name = _("Section Héro")
     
 @plugin_pool.register_plugin
 class AboutUsSectionPlugin(CMSPluginBase):
@@ -84,3 +84,11 @@ class CTASectionPlugin(CMSPluginBase):
     name = _("Appel A l'action")
     cache = False
     render_template = "base/CTA_section.html"
+    
+@plugin_pool.register_plugin
+class ContactSectionPlugin(CMSPluginBase):
+    model = ContactSection
+    module = _("Théme Ulmus")
+    name = _("Section Contact")
+    cache = False
+    render_template = "base/contact_section.html"

@@ -5,21 +5,6 @@
       <h2>Services</h2>
       <p>{{ instance.description }}</p>
     </div>
-    {% comment %} {% if services %}
-      <div class="row">
-        {% for service in services %}
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <div class="icon">
-                <i class="{{ service.icon_class }}"></i>
-              </div>
-              <h4><a href="">{{ service.title }}</a></h4>
-              <p>{{ service.description }}</p>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %} {% endcomment %}
     {% if instance.child_plugin_instances %}
       <div class="row">
         {% for plugin in instance.child_plugin_instances %}
@@ -27,18 +12,6 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               {% render_plugin plugin %}
             </div>
-            {% comment %} {% with service_card=plugin.servicecard %}
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-box">
-                  <div class="icon">
-                    <!-- Render icon based on service_card.service.icon_class -->
-                    <i class="{{ service_card.service.icon_class }}"></i>
-                  </div>
-                  <h4>{{ service_card.service.title }}</h4>
-                  <p>{{ service_card.service.description }}</p>
-                </div>
-              </div>
-            {% endwith %} {% endcomment %}
           {% endif %}
         {% endfor %}
       </div>
