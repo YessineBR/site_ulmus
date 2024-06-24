@@ -66,3 +66,11 @@ class ServiceCard(CMSPlugin):
     
     def __str__(self):
         return f"{self.service.title} Card"
+
+class CTASection(CMSPlugin):
+    header = models.CharField(max_length=125, verbose_name=_("Titre"))
+    text = models.TextField(verbose_name=_("Description"))
+    button_text = models.CharField(max_length=125, verbose_name=_("Texte Bouton"))
+    
+    def __str__(self):
+        return f"{self.header}"

@@ -1,7 +1,7 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext_lazy as _
-from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard
+from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard, CTASection
 
 
 @plugin_pool.register_plugin
@@ -10,13 +10,13 @@ class HeroSectionPlugin(CMSPluginBase):
     render_template = "base/hero_section.html"
     cache = False
     module = _("Théme Ulmus")
-    name = _("Hero Section")
+    name = _("Section héro")
     
 @plugin_pool.register_plugin
 class AboutUsSectionPlugin(CMSPluginBase):
     model = AboutUsSection
     module = _("Théme Ulmus")
-    name = _("About Us Section")
+    name = _("Section A propos")
     render_template = "base/about_us_section.html"
     cache = False
     allow_children = True
@@ -33,7 +33,7 @@ class AboutUsSectionPlugin(CMSPluginBase):
 class AboutUsListItemPlugin(CMSPluginBase):
     model = AboutUsListItem
     module = _("Théme Ulmus")
-    name = _("About Us List Item")
+    name = _("Element liste A Propos")
     render_template = "base/about_us_list_item.html"
     parent_classes = ['AboutUsSectionPlugin']
 
@@ -47,7 +47,7 @@ class AboutUsListItemPlugin(CMSPluginBase):
 class ServicesSectionPlugin(CMSPluginBase):
     model = ServicesSection
     module = _("Théme Ulmus")
-    name = _("Services Section")
+    name = _("Section Service")
     render_template = "base/services_section.html"
     cache = False
     allow_children = True
@@ -76,3 +76,11 @@ class ServiceCardPlugin(CMSPluginBase):
             'service': service,
         })
         return context
+    
+@plugin_pool.register_plugin
+class CTASectionPlugin(CMSPluginBase):
+    model = CTASection
+    module = _("Théme Ulmus")
+    name = _("Appel A l'action")
+    cache = False
+    render_template = "base/CTA_section.html"
