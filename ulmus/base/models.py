@@ -1,6 +1,7 @@
 from django.db import models
 from cms.models.pluginmodel import CMSPlugin
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 # Create your models here.
 
@@ -16,7 +17,7 @@ class HeroSection(CMSPlugin):
         get_latest_by = 'created_at'
     
     def __str__(self):
-        return f"Hero Section"
+        return f"Hero Section {self.id}"
     
 class AboutUsSection(CMSPlugin):
     description_1 = models.TextField(verbose_name=_("Description 1"), null=True, blank=True)
@@ -32,3 +33,36 @@ class AboutUsListItem(CMSPlugin):
 
     def __str__(self):
         return self.text
+
+class Service(models.Model):
+    title = models.CharField(max_length=256, verbose_name=_("Titre"))
+    description = models.TextField(verbose_name=_("Description"))
+    icon_class = models.CharField(max_length=50, verbose_name=_("Icon CSS Class"), help_text="Enter a CSS class for the icon (e.g., 'bi bi-heart')")
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name=_("Date de création"))
+
+    class Meta:
+        verbose_name = _("Service")
+        verbose_name_plural = _("Services")
+        ordering = ['-date_created']
+
+    def __str__(self):
+        return self.title
+
+    def icon_preview(self):
+        # Replace 'bi' with your icon library prefix (e.g., 'bi' for Bootstrap icons, 'bx' for Boxicons)
+        return f'<i class="{self.icon_class}"></i>'
+
+    icon_preview.allow_tags = True
+    icon_preview.short_description = 'Icon Preview'
+
+class ServicesSection(CMSPlugin):
+    description = models.TextField(verbose_name=_("Description"))
+    
+    def __str__(self):
+        return f"Service Section {self.id}"
+
+class ServiceCard(CMSPlugin):
+    service = models.ForeignKey(Service, related_name="service", on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.service.title} Card"
