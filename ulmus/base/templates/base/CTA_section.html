@@ -1,5 +1,5 @@
 {% load static cms_tags %}
-<section id="cta" class="cta">
+<section id="cta" class="cta" {% if instance.background_image %}style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{instance.background_image.url}}') fixed center center"{% endif %}>
   <div class="container">
     <div class="row">
       <div class="col-lg-9 text-center text-lg-start">
