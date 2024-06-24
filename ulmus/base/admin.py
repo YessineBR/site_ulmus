@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection
+from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ContactRequest
 
 # admin.site.register(HeroSection)
 # class AboutUsListItemInline(admin.TabularInline):
@@ -25,3 +25,5 @@ class ServiceAdmin(admin.ModelAdmin):
             'fields': ('title', 'description', 'icon_class')
         }),
     )
+    
+admin.site.register(ContactRequest)

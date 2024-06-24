@@ -87,3 +87,16 @@ class ContactSection(CMSPlugin):
     
     def __str__(self):
         return f"Section contact {self.id}"
+    
+class ContactRequest(models.Model):
+    name = models.CharField(max_length=125, verbose_name=_("Nom"))
+    email = models.EmailField(verbose_name=_("E-mail"))
+    subject = models.CharField(max_length=256, verbose_name=_("Sujet"))
+    message = models.TextField(verbose_name=_("Message"))
+    
+    class Meta:
+        verbose_name = _("Contact Request")
+        verbose_name_plural = _("Contact Requests")
+    
+    def __str__(self):
+        return f"Request N°{self.id}: {self.name}"

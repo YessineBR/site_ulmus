@@ -1,7 +1,9 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext_lazy as _
+
 from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard, CTASection, ContactSection
+from .forms import ContactRequestForm
 
 
 @plugin_pool.register_plugin
@@ -92,3 +94,11 @@ class ContactSectionPlugin(CMSPluginBase):
     name = _("Section Contact")
     cache = False
     render_template = "base/contact_section.html"
+    
+    def render(self, context, instance, placeholder):
+        form = ContactRequestForm()
+        context.update({
+            'instance': instance,
+            'form': form,
+        })
+        return context
