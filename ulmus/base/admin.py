@@ -1,17 +1,17 @@
 from django.contrib import admin
 from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection
 
-admin.site.register(HeroSection)
-class AboutUsListItemInline(admin.TabularInline):
-    model = AboutUsListItem
-    extra = 1
-    fk_name = 'about_us_section'
+# admin.site.register(HeroSection)
+# class AboutUsListItemInline(admin.TabularInline):
+#     model = AboutUsListItem
+#     extra = 1
+#     fk_name = 'about_us_section'
     
-@admin.register(AboutUsSection)
-class AboutUsSectionAdmin(admin.ModelAdmin):
-    inlines = [AboutUsListItemInline]
+# @admin.register(AboutUsSection)
+# class AboutUsSectionAdmin(admin.ModelAdmin):
+#     inlines = [AboutUsListItemInline]
 
-admin.site.register(ServicesSection)
+# admin.site.register(ServicesSection)
     
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):

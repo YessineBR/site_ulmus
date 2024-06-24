@@ -3,6 +3,7 @@ from cms.models.pluginmodel import CMSPlugin
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from filer.fields.image import FilerImageField
+from .helpers import *
 
 # Create your models here.
 
@@ -72,6 +73,7 @@ class CTASection(CMSPlugin):
     header = models.CharField(max_length=125, verbose_name=_("Titre"))
     text = models.TextField(verbose_name=_("Description"))
     button_text = models.CharField(max_length=125, verbose_name=_("Texte Bouton"))
+    button_link = models.CharField(max_length=256, choices=get_page_url_choices, blank=True, verbose_name=_("Lien Bouton"))
     background_image = FilerImageField(related_name="cta_section_images", on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Image de fond"))
     
     def __str__(self):
