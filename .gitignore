@@ -1,2 +1,12 @@
+# Ignore the virtual environment directory
 venv/
-*/*.pyc
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore __pycache__ directories
+__pycache__/
+
+# Ignore other common Python bytecode files
+*.pyo
+*.pyd
