@@ -1,0 +1,25 @@
+{% load static %}
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>A propos de nous</h2>
+      <p>{{ instance.description_1 }}</p>
+    </div>
+    <div class="row content">
+      <div class="col-lg-6">
+        <p>{{ instance.description_2 }}</p>
+        <ul>
+          {% for item in list_items %}
+            <li>
+              <i class="ri-check-double-line"></i> {{ item.text }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0">
+        <p>{{ instance.description_3 }}</p>
+        <a href="#" class="btn-learn-more">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
