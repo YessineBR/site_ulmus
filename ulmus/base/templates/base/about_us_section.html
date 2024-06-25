@@ -1,4 +1,4 @@
-{% load static %}
+{% load static cms_tags %}
 <section id="about" class="about">
   <div class="container">
     <div class="section-title">
@@ -12,9 +12,7 @@
           <ul>
             {% for plugin in instance.child_plugin_instances %}
               {% if plugin.plugin_type == 'AboutUsListItemPlugin' %}
-                <li>
-                  <i class="ri-check-double-line"></i> {{ plugin.text }}
-                </li>
+                {% render_plugin plugin %}
               {% endif %}
             {% endfor %}
           </ul>

@@ -19,7 +19,7 @@ class HeroSection(CMSPlugin):
         get_latest_by = 'created_at'
     
     def __str__(self):
-        return f"Hero Section {self.id}"
+        return f"Section Héro"
     
 class AboutUsSection(CMSPlugin):
     description_1 = models.TextField(verbose_name=_("Description 1"), null=True, blank=True)
@@ -27,7 +27,7 @@ class AboutUsSection(CMSPlugin):
     description_3 = models.TextField(verbose_name=_("Description 3"), null=True, blank=True)
 
     def __str__(self):
-        return f"About Us Section {self.id} : {self.description_1} | {self.description_2} | {self.description_3}"
+        return f"Section A Propos"
 
 class AboutUsListItem(CMSPlugin):
     text = models.CharField(max_length=255, verbose_name=_("List Item"))
@@ -59,13 +59,13 @@ class ServicesSection(CMSPlugin):
     description = models.TextField(verbose_name=_("Description"))
     
     def __str__(self):
-        return f"Service Section {self.id}"
+        return f"Section Services"
 
 class ServiceCard(CMSPlugin):
     service = models.ForeignKey(Service, related_name="service", on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.service.title} Card"
+        return self.service.title
 
 class CTASection(CMSPlugin):
     header = models.CharField(max_length=125, verbose_name=_("Titre"))
@@ -75,7 +75,7 @@ class CTASection(CMSPlugin):
     background_image = FilerImageField(related_name="cta_section_images", on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Image de fond"))
     
     def __str__(self):
-        return f"{self.header}"
+        return f"Section CTA : {self.header}"
     
 class ContactSection(CMSPlugin):
     description = models.TextField(verbose_name=_("Description"))
@@ -84,7 +84,7 @@ class ContactSection(CMSPlugin):
     company_phone_number = models.CharField(max_length=32, verbose_name=_("Numéro téléphone de la société"))
     
     def __str__(self):
-        return f"Section contact {self.id}"
+        return f"Section contact"
     
 class ContactRequest(models.Model):
     name = models.CharField(max_length=125, verbose_name=_("Nom"))
@@ -97,7 +97,7 @@ class ContactRequest(models.Model):
         verbose_name_plural = _("Contact Requests")
     
     def __str__(self):
-        return f"Request N°{self.id}: {self.name}"
+        return f"Demande N°{self.id}: {self.name}"
 
 class CounterSection(CMSPlugin):
     title = models.CharField(max_length=125, verbose_name=_("Titre"))
@@ -108,5 +108,18 @@ class CounterSection(CMSPlugin):
     background_image = FilerImageField(related_name="counter_section_images", on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Image de fond"))
     
     def __str__(self):
-        return f"Section compteur ID°{self.id}"
+        return f"Section Compteur"
+
+class FeaturesSection(CMSPlugin):
+    features_image = FilerImageField(related_name="features_section_images", on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Image de section caractéristiques"))
     
+    def __str__(self):
+        return f"Section Caractéristiques"
+
+class FeatureElement(CMSPlugin):
+    icon_class = models.CharField(max_length=50, verbose_name=_("Icon CSS Class"), help_text="Enter a CSS class for the icon (e.g., 'bi bi-heart')")
+    title = models.CharField(max_length=255, verbose_name=_("Titre"))
+    description = models.CharField(max_length=256, verbose_name=_("Description"))
+    
+    def __str__(self):
+        return self.title

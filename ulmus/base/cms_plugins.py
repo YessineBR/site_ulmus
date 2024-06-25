@@ -2,7 +2,17 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext_lazy as _
 
-from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard, CTASection, ContactSection, CounterSection
+from .models import (HeroSection,
+                     AboutUsSection,
+                     AboutUsListItem,
+                     Service,
+                     ServicesSection,
+                     ServiceCard,
+                     CTASection,
+                     ContactSection,
+                     CounterSection,
+                     FeaturesSection,
+                     FeatureElement)
 from .forms import ContactRequestForm
 
 
@@ -50,7 +60,7 @@ class AboutUsListItemPlugin(CMSPluginBase):
 class ServicesSectionPlugin(CMSPluginBase):
     model = ServicesSection
     module = _("Théme Ulmus")
-    name = _("Section Service")
+    name = _("Section Services")
     render_template = "base/services_section.html"
     cache = False
     allow_children = True
@@ -61,14 +71,13 @@ class ServicesSectionPlugin(CMSPluginBase):
         context.update({
             'instance': instance,
         })
-        
         return context
 
 @plugin_pool.register_plugin
 class ServiceCardPlugin(CMSPluginBase):
     model = ServiceCard
     module = _("Théme Ulmus")
-    name = _("Service Card")
+    name = _("Elément Carte Service")
     render_template = "base/service_card.html"
     parent_classes = ["ServicesSectionPlugin"]
     
@@ -84,7 +93,7 @@ class ServiceCardPlugin(CMSPluginBase):
 class CTASectionPlugin(CMSPluginBase):
     model = CTASection
     module = _("Théme Ulmus")
-    name = _("Appel A l'action")
+    name = _("Section CTA")
     cache = False
     render_template = "base/CTA_section.html"
     
@@ -111,3 +120,22 @@ class CounterSectionPlugin(CMSPluginBase):
     name = _("Section Compteurs")
     cache = False
     render_template = "base/counter_section.html"
+    
+@plugin_pool.register_plugin
+class FeaturesSectionPlugin(CMSPluginBase):
+    model = FeaturesSection
+    module = _("Théme Ulmus")
+    name = _("Section Caractéristiques")
+    cache = False
+    render_template = "base/features_section.html"
+    allow_children = True
+    child_classes = ['FeatureElementPlugin']
+
+@plugin_pool.register_plugin
+class FeatureElementPlugin(CMSPluginBase):
+    model = FeatureElement
+    module = _("Théme Ulmus")
+    name = _("Element caractéristique")
+    cache = False
+    render_template = "base/feature_element.html"
+    parent_classes = ['FeaturesSectionPlugin']
