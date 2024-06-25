@@ -30,7 +30,6 @@ class AboutUsSection(CMSPlugin):
         return f"About Us Section {self.id} : {self.description_1} | {self.description_2} | {self.description_3}"
 
 class AboutUsListItem(CMSPlugin):
-    about_us_section = models.ForeignKey(AboutUsSection, related_name='list_items', on_delete=models.CASCADE)
     text = models.CharField(max_length=255, verbose_name=_("List Item"))
 
     def __str__(self):

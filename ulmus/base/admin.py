@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ContactRequest
 
 # admin.site.register(HeroSection)
+
 # class AboutUsListItemInline(admin.TabularInline):
 #     model = AboutUsListItem
 #     extra = 1

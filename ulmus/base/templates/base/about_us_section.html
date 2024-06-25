@@ -8,13 +8,17 @@
     <div class="row content">
       <div class="col-lg-6">
         <p>{{ instance.description_2 }}</p>
-        <ul>
-          {% for item in list_items %}
-            <li>
-              <i class="ri-check-double-line"></i> {{ item.text }}
-            </li>
-          {% endfor %}
-        </ul>
+        {% if instance.child_plugin_instances %}
+          <ul>
+            {% for plugin in instance.child_plugin_instances %}
+              {% if plugin.plugin_type == 'AboutUsListItemPlugin' %}
+                <li>
+                  <i class="ri-check-double-line"></i> {{ plugin.text }}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
       </div>
       <div class="col-lg-6 pt-4 pt-lg-0">
         <p>{{ instance.description_3 }}</p>

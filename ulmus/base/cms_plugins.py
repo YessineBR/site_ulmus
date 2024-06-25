@@ -25,9 +25,9 @@ class AboutUsSectionPlugin(CMSPluginBase):
     child_classes = ['AboutUsListItemPlugin']
 
     def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
         context.update({
             'instance': instance,
-            'list_items': instance.list_items.all()
         })
         return context
     
@@ -40,6 +40,7 @@ class AboutUsListItemPlugin(CMSPluginBase):
     parent_classes = ['AboutUsSectionPlugin']
 
     def render(self, context, instance, placeholder):
+        context = super().render(context, instance, placeholder)
         context.update({
             'instance': instance,
         })
