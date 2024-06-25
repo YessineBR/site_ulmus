@@ -1,0 +1,31 @@
+{% load static %}
+<section id="counts" class="counts" {% if instance.background_image %}style="background-image: url('{{instance.background_image.url}}')"{% endif %}>
+      <div class="container">
+
+        <div class="text-center title">
+          <h3>{{ instance.description }}</h3>
+          <p>{{ instance.description }}</p>
+        </div>
+
+        <div class="row counters position-relative">
+
+          <div class="col-lg-4 col-12 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="{{ instance.clients_max_counter }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Clients</p>
+          </div>
+
+          <div class="col-lg-4 col-12 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="{{ instance.projects_max_counter }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Projets</p>
+          </div>
+
+
+          <div class="col-lg-4 col-12 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="{{ instance.workers_max_counter }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Hard Workers</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>

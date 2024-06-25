@@ -2,7 +2,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext_lazy as _
 
-from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard, CTASection, ContactSection
+from .models import HeroSection, AboutUsSection, AboutUsListItem, Service, ServicesSection, ServiceCard, CTASection, ContactSection, CounterSection
 from .forms import ContactRequestForm
 
 
@@ -102,3 +102,11 @@ class ContactSectionPlugin(CMSPluginBase):
             'form': form,
         })
         return context
+    
+@plugin_pool.register_plugin
+class CounterSectionPlugin(CMSPluginBase):
+    model = CounterSection
+    module = _("Théme Ulmus")
+    name = _("Section Compteurs")
+    cache = False
+    render_template = "base/counter_section.html"

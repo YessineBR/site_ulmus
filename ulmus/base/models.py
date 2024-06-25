@@ -13,8 +13,8 @@ class HeroSection(CMSPlugin):
     subtitle = models.CharField(max_length=255, verbose_name=_("Sous-titre"))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Date de création"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Date de modification"))
-    background_image = models.ImageField(upload_to='plugins/hero_section/', null=True, blank=True, verbose_name=_("Image de fond"))
-    
+    background_image = FilerImageField(related_name="hero_section_images", on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Image de fond"))
+        
     class Meta:
         get_latest_by = 'created_at'
     
@@ -51,7 +51,6 @@ class Service(models.Model):
         return self.title
 
     def icon_preview(self):
-        # Replace 'bi' with your icon library prefix (e.g., 'bi' for Bootstrap icons, 'bx' for Boxicons)
         return f'<i class="{self.icon_class}"></i>'
 
     icon_preview.allow_tags = True
@@ -100,3 +99,15 @@ class ContactRequest(models.Model):
     
     def __str__(self):
         return f"Request N°{self.id}: {self.name}"
+
+class CounterSection(CMSPlugin):
+    title = models.CharField(max_length=125, verbose_name=_("Titre"))
+    description = models.CharField(max_length=256, verbose_name=_("Description"))
+    clients_max_counter = models.IntegerField(verbose_name=_("Compteur clients"))
+    projects_max_counter = models.IntegerField(verbose_name=_("Compteur projets"))
+    workers_max_counter = models.IntegerField(verbose_name=_("Compteur employés"))
+    background_image = FilerImageField(related_name="counter_section_images", on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Image de fond"))
+    
+    def __str__(self):
+        return f"Section compteur ID°{self.id}"
+    
