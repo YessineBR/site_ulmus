@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Ulmus -{% page_attribute 'page_title' %}</title>
+    <title>Ulmus - {% page_attribute 'page_title' %}</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -28,52 +28,18 @@
     <!-- Template Main CSS File -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 
-    <!--                     =======================================================
+    <!--                      =======================================================
   * Template Name: KnightOne
   * Template URL: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/
   * Updated: Mar 17 2024 with Bootstrap v5.3.3
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ========================================================                     -->
+  ========================================================                      -->
     {% render_block 'css' %}
   </head>
 
   <body>
     {% cms_toolbar %}
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
-            {% comment %} <h1 class="logo me-auto me-lg-0"><a href="{% page_url 'acceuil' as url %}" class="d-flex align-items-center"><img src="{% static 'img/logo.png' %}" alt="" class="img-fluid me-3" /><span>ULMUS</span></a></h1> {% endcomment %}
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="{% page_url 'acceuil' as url %}" class="logo me-auto me-lg-0"><img src="{% static 'img/logo_1.png' %}" alt="Ulmus Technologie" class="img-fluid" /></a>
-            <!-- .navbar -->
-            <nav id="navbar" class="navbar order-last order-lg-0">
-              <ul>
-                {% show_menu 1 100 100 100 %}
-                <li>
-                  <a class="nav-link scrollto active" href="#hero">Acceuil</a>
-                </li>
-                <li>
-                  <a class="nav-link scrollto" href="#about">A Propos</a>
-                </li>
-                <li>
-                  <a class="nav-link scrollto" href="#services">Services</a>
-                </li>
-                <li>
-                  <a class="nav-link scrollto" href="#contact">Contact</a>
-                </li>
-              </ul>
-              <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <a href="#about" class="get-started-btn scrollto">Commencer</a>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- End Header -->
-
     <!-- Content Block -->
     <main id="main">
       {% block content %}
