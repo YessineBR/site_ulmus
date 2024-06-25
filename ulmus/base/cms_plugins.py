@@ -70,6 +70,7 @@ class ServicesSectionPlugin(CMSPluginBase):
         context = super().render(context, instance, placeholder)
         context.update({
             'instance': instance,
+            'services': Service.objects.all()
         })
         return context
 

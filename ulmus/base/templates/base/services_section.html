@@ -2,7 +2,9 @@
 <section id="services" class="services">
   <div class="container">
     <div class="section-title">
-      <h2><a href="{% page_url 2 %}">Services</a></h2>
+      {% if instance.child_plugin_instances %}
+        <h2><a href="{% page_url 2 %}">Services</a></h2>
+      {% endif %}
       <p>{{ instance.description }}</p>
     </div>
     {% if instance.child_plugin_instances %}
@@ -13,6 +15,20 @@
               {% render_plugin plugin %}
             </div>
           {% endif %}
+        {% endfor %}
+      </div>
+    {% elif services %}
+      <div class="row">
+        {% for service in services %}
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon">
+                <i class="{{ service.icon_class }}"></i>
+              </div>
+              <h4><a href="">{{ service.title }}</a></h4>
+              <p>{{ service.description }}</p>
+            </div>
+          </div>
         {% endfor %}
       </div>
     {% endif %}
