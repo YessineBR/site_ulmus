@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% load cms_tags menu_tags sekizai_tags static %}
+{% block content %}
+  {% show_menu 0 100 100 100 'base/navbar_cms.html' %}
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li>
+          <a href="{% page_url 'acceuil' as url %}">Acceuil</a>
+        </li>
+        <li>
+          {% page_attribute 'page_title' %}
+        </li>
+      </ol>
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+  {% placeholder 'Contenu' %}
+{% endblock %}

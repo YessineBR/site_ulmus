@@ -1,6 +1,6 @@
 {% load static menu_tags cms_tags cache %}
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top header-inner-pages">
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
@@ -38,7 +38,6 @@
                     <a class="nav-link{% if child.selected %} active{% endif %}" href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
                   {% endif %}
                 {% endif %}
-              </li>
             {% endfor %}
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>

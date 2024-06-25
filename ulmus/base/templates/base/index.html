@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% load cms_tags menu_tags sekizai_tags static %}
 {% block content %}
-  {% include "base/navbar.html" %}
+  {% comment %} {% include "base/navbar.html" %} {% endcomment %}
+  {% show_menu 0 100 100 100 'base/navbar.html' %}
   {% placeholder 'Contenu' %}
 {% endblock %}

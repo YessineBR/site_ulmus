@@ -209,6 +209,7 @@ SITE_ID = 1
 CMS_TEMPLATES = (
     ("base.html", _("Standard")),
     ("base/index.html", _("Page d'acceuil Ulmus")),
+    ("base/blank_page.html", _("Page vierge Ulmus")),
 )
 
 # Enable permissions
