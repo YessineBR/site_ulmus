@@ -143,7 +143,8 @@ DATABASES = {
         'NAME': 'ulmus',
         'USER': 'admin',
         'PASSWORD': 'root',
-        'HOST': 'localhost', 
+        'HOST': 'localhost',
+        'HOST': 'host.docker.internal',  
         'PORT': '5433',
     }
 }
