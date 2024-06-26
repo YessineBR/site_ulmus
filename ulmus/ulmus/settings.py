@@ -139,12 +139,12 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ulmus',
-        'USER': 'postgres',
+        'USER': 'admin',
         'PASSWORD': 'root',
         'HOST': 'localhost', 
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
