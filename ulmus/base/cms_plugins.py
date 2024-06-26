@@ -19,7 +19,7 @@ from .forms import ContactRequestForm
 @plugin_pool.register_plugin
 class HeroSectionPlugin(CMSPluginBase):
     model = HeroSection
-    render_template = "base/hero_section.html"
+    render_template = "base/sections/hero_section.html"
     cache = False
     module = _("Théme Ulmus")
     name = _("Section Héro")
@@ -29,7 +29,7 @@ class AboutUsSectionPlugin(CMSPluginBase):
     model = AboutUsSection
     module = _("Théme Ulmus")
     name = _("Section A propos")
-    render_template = "base/about_us_section.html"
+    render_template = "base/sections/about_us_section.html"
     cache = False
     allow_children = True
     child_classes = ['AboutUsListItemPlugin']
@@ -46,7 +46,7 @@ class AboutUsListItemPlugin(CMSPluginBase):
     model = AboutUsListItem
     module = _("Théme Ulmus")
     name = _("Element liste A Propos")
-    render_template = "base/about_us_list_item.html"
+    render_template = "base/components/about_us_list_item.html"
     parent_classes = ['AboutUsSectionPlugin']
 
     def render(self, context, instance, placeholder):
@@ -61,7 +61,7 @@ class ServicesSectionPlugin(CMSPluginBase):
     model = ServicesSection
     module = _("Théme Ulmus")
     name = _("Section Services")
-    render_template = "base/services_section.html"
+    render_template = "base/sections/services_section.html"
     cache = False
     allow_children = True
     child_classes = ["ServiceCardPlugin"]
@@ -79,7 +79,7 @@ class ServiceCardPlugin(CMSPluginBase):
     model = ServiceCard
     module = _("Théme Ulmus")
     name = _("Elément Carte Service")
-    render_template = "base/service_card.html"
+    render_template = "base/components/service_card.html"
     parent_classes = ["ServicesSectionPlugin"]
     
     def render(self, context, instance, placeholder):
@@ -96,7 +96,7 @@ class CTASectionPlugin(CMSPluginBase):
     module = _("Théme Ulmus")
     name = _("Section CTA")
     cache = False
-    render_template = "base/CTA_section.html"
+    render_template = "base/sections/CTA_section.html"
     
 @plugin_pool.register_plugin
 class ContactSectionPlugin(CMSPluginBase):
@@ -104,7 +104,7 @@ class ContactSectionPlugin(CMSPluginBase):
     module = _("Théme Ulmus")
     name = _("Section Contact")
     cache = False
-    render_template = "base/contact_section.html"
+    render_template = "base/sections/contact_section.html"
     
     def render(self, context, instance, placeholder):
         form = ContactRequestForm()
@@ -120,7 +120,7 @@ class CounterSectionPlugin(CMSPluginBase):
     module = _("Théme Ulmus")
     name = _("Section Compteurs")
     cache = False
-    render_template = "base/counter_section.html"
+    render_template = "base/sections/counter_section.html"
     
 @plugin_pool.register_plugin
 class FeaturesSectionPlugin(CMSPluginBase):
@@ -128,7 +128,7 @@ class FeaturesSectionPlugin(CMSPluginBase):
     module = _("Théme Ulmus")
     name = _("Section Caractéristiques")
     cache = False
-    render_template = "base/features_section.html"
+    render_template = "base/sections/features_section.html"
     allow_children = True
     child_classes = ['FeatureElementPlugin']
 
@@ -138,5 +138,5 @@ class FeatureElementPlugin(CMSPluginBase):
     module = _("Théme Ulmus")
     name = _("Element caractéristique")
     cache = False
-    render_template = "base/feature_element.html"
+    render_template = "base/components/feature_element.html"
     parent_classes = ['FeaturesSectionPlugin']
