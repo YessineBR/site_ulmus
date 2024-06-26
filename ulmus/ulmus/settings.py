@@ -13,8 +13,11 @@ For the list of django CMS settings and their values, see
 https://docs.django-cms.org/en/release-4.1.x/reference/configuration.html
 """
 
+from dotenv import load_dotenv
 import os
 from pathlib import Path
+
+load_dotenv()
 
 from django.utils.translation import gettext_lazy as _
 
@@ -26,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-rq&-hsne!!t#ice*&9g9$5b*#@dyv4r+w!i@7t@4g96901!$t6'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -140,12 +143,12 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ulmus',
-        'USER': 'admin',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'HOST': 'host.docker.internal',  
-        'PORT': '5433',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        # 'HOST': 'host.docker.internal',  
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
