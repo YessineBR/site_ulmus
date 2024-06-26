@@ -1,6 +1,8 @@
 # Ignore the virtual environment directory
 venv/
 
+ulmus/static/
+
 # Ignore compiled Python files
 *.pyc
 

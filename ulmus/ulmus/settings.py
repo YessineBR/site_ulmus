@@ -189,6 +189,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "base" / "static",
 ]
 
+STATIC_ROOT = "static"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -231,6 +233,7 @@ TEXT_INLINE_EDITING = True
 
 STATICFILES_DIRS = [
     BASE_DIR / "ulmus" / "static",
+    BASE_DIR / "base" / "static"
 ]
 
 INTERNAL_IPS = [
