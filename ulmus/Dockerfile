@@ -1,18 +1,15 @@
-FROM python:3
+FROM python:3-slim
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+WORKDIR /app
 
-WORKDIR /ulmus
+COPY requirements.txt .
 
-COPY requirements.txt /ulmus/
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --upgrade pip \ && pip install -r requirements.txt
+COPY . .
 
-COPY . /app/
-
-RUN py manage.py collectstatic --noinput
+# RUN py manage.py collectstatic --noinput
 
 EXPOSE 8000
 
-CMD ["py", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

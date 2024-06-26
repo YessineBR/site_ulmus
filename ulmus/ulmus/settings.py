@@ -13,8 +13,11 @@ For the list of django CMS settings and their values, see
 https://docs.django-cms.org/en/release-4.1.x/reference/configuration.html
 """
 
+from dotenv import load_dotenv
 import os
 from pathlib import Path
+
+load_dotenv()
 
 from django.utils.translation import gettext_lazy as _
 
@@ -139,11 +142,13 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ulmus',
         'USER': 'admin',
         'PASSWORD': 'root',
-        'HOST': 'localhost', 
+        'HOST': 'host.docker.internal', 
+        # uncomment below to switch back to local database if you want to undockerize
+        # 'HOST': 'localhost', 
         'PORT': '5433',
     }
 }

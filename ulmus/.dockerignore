@@ -10,6 +10,7 @@
 **/.classpath
 **/.dockerignore
 **/.env
+**/venv
 **/.git
 **/.gitignore
 **/.project
@@ -30,5 +31,7 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/*.sqlite3
+**/*.db
 LICENSE
 README.md
