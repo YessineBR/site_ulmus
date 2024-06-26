@@ -18,16 +18,16 @@
                 {% else %}
                   {% if child.id == 1 %}
                     <li class="dropdown">
-                      <a class="nav-link{% if child.selected %} active{% endif %}" href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+                      <a class="nav-link scrollto{% if child.selected %} active{% endif %}" href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
                       <ul>
                         <li>
-                          <a href="{{ child.get_absolute_url }}#about">A propos</a>
+                          <a href="{{ child.get_absolute_url }}#about" class="scrollto">A propos</a>
                         </li>
                         <li>
-                          <a href="{{ child.get_absolute_url }}#services">Services</a>
+                          <a href="{{ child.get_absolute_url }}#services" class="scrollto">Services</a>
                         </li>
                         <li>
-                          <a href="{{ child.get_absolute_url }}#contact">Contact</a>
+                          <a href="{{ child.get_absolute_url }}#contact" class="scrollto">Contact</a>
                         </li>
                       </ul>
                     </li>
