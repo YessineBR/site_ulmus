@@ -240,7 +240,8 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fff;
+  /* color: #fff; */
+  color: #00b371;
 }
 
 .navbar .dropdown ul {
@@ -1520,4 +1521,8 @@ section {
 
 #footer .credits a:hover {
   color: #009961;
+}
+
+.text-green {
+  color: #00b371;
 }
