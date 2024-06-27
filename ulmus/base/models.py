@@ -123,3 +123,10 @@ class FeatureElement(CMSPlugin):
     
     def __str__(self):
         return self.title
+
+class TechnologyElement(CMSPlugin):
+    label = models.CharField(max_length=125, verbose_name=_("Libelle"))
+    technology_image = FilerImageField(related_name="technologies_section_images", on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Image de section technologies"))
+    
+    def __str__(self):
+        return self.label

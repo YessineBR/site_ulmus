@@ -1,4 +1,5 @@
 from cms.plugin_base import CMSPluginBase
+from cms.models.pluginmodel import CMSPlugin
 from cms.plugin_pool import plugin_pool
 from django.utils.translation import gettext_lazy as _
 
@@ -12,7 +13,8 @@ from .models import (HeroSection,
                      ContactSection,
                      CounterSection,
                      FeaturesSection,
-                     FeatureElement)
+                     FeatureElement,
+                     TechnologyElement)
 from .forms import ContactRequestForm
 
 
@@ -140,3 +142,26 @@ class FeatureElementPlugin(CMSPluginBase):
     cache = False
     render_template = "base/components/feature_element.html"
     parent_classes = ['FeaturesSectionPlugin']
+
+
+@plugin_pool.register_plugin
+class TechnologiesSectionPlugin(CMSPluginBase):
+    model = CMSPlugin
+    module = _("Théme Ulmus")
+    name = _("Section Technologies")
+    render_template = "base/sections/technologies_section.html"
+    cache = False
+    allow_children = True
+    child_classes = ['TechnologyElementPlugin']
+    
+    def __str__(self):
+        return "Section Technologies"
+
+@plugin_pool.register_plugin
+class TechnologyElementPlugin(CMSPluginBase):
+    model = TechnologyElement
+    module = _("Théme Ulmus")
+    name = _("Element Technologie")
+    render_template = "base/components/technology_element.html"
+    cache = False
+    parent_classes = ['TechnologiesSectionPlugin']
