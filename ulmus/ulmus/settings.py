@@ -26,7 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 try:
     with open(str(BASE_DIR.parent / "config.yaml")) as stream:
         config = yaml.safe_load(stream)
-        print(config)
 except Exception as e:
     print(e)
 
