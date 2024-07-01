@@ -1,4 +1,3 @@
-# SECRET_KEY="django-insecure-rq&-hsne!!t#ice*&9g9$5b*#@dyv4r+w!i@7t@4g96901!$t6"
 SECRET_KEY: "5-3igy09w4mxqw7pe*sa8)uf^$o!ysc1l&ww4*gy*h3vwy(ww-"
 DB_NAME: "ulmus"
 DB_USER: "admin"

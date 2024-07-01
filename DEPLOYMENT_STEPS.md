@@ -150,7 +150,7 @@ sudo nano /etc/nginx/sites-available/<your_website_name>
 ```
 server {
     listen 80;
-    server_name your_server_ip_address;  # Replace with your server's IP address
+    server_name your_server_ip_address;  # Replace with your server's IP address or domain name
 
     # Serve static files directly
     location /static/ {
